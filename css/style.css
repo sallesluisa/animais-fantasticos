@@ -128,6 +128,7 @@ body {
   margin-top: 2rem;
   margin-bottom: .5rem;
   color: #E54;
+  cursor: pointer;
 }
 
 .faq__lista dt::before {
@@ -228,5 +229,34 @@ body {
   to {
     opacity: 1;
     transform: translate3d(0, 0, 0);
+  }
+}
+
+.js .js_accordion dd{
+  display: none;
+}
+
+.js_accordion dt::after {
+  content: "  ⮧";
+}
+
+.js_accordion dt.ativo::after {
+  content: "  ⮥";
+}
+
+.js_accordion dd.ativo {
+  display: block;
+  animation: slideDown .5s forwards;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+
+  to {
+    opacity: 1;
+    max-height: 150px;
   }
 }
