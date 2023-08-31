@@ -3,7 +3,7 @@ export default class ScrollAnima {
     this.sections = document.querySelectorAll(sections);
     this.windowMetade = window.innerHeight * 0.6;
 
-    this.animaScroll = this.checkDistance.bind(this);
+    this.checkDistance = this.checkDistance.bind(this);
   }
 
   getDistance() {
@@ -19,9 +19,9 @@ export default class ScrollAnima {
   checkDistance() {
     this.distance.forEach((item) => {
       if (window.pageYOffset > item.offset) {
-        item.classList.add('ativo');
-      } else if (item.classList.contains('ativo')) {
-        item.classList.remove('ativo');
+        item.element.classList.add('ativo');
+      } else if (item.element.classList.contains('ativo')) {
+        item.element.classList.remove('ativo');
       }
     });
   }
@@ -37,6 +37,5 @@ export default class ScrollAnima {
 
   stop() {
     window.removeEventListener('scroll', this.checkDistance);
-
   }
 }
